@@ -6,10 +6,8 @@ import {
   FaFacebook,
   FaInstagram,
   FaYoutube,
-  FaTwitter,
-  FaLinkedin
+  FaTwitter
 } from 'react-icons/fa';
-import { MdFingerprint } from 'react-icons/md';
 import Duck from './../../../images/duck.png';
 
 function Footer() {

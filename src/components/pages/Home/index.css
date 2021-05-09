@@ -1,0 +1,33 @@
+.home-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*background-color: cornflowerblue;*/
+    margin: auto;
+    
+}
+
+.buttons-sex{
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.params{
+    text-align: start;
+    color: white;
+}
+
+.calculator-text{
+    font-family: 'Fugaz One', cursive;
+    color: #fff;
+    font-size: 40px;
+    text-align: center;
+}
+
+@media screen and (min-width: 960px) {
+    .home-container{
+        width: 40%;
+    }
+
+}

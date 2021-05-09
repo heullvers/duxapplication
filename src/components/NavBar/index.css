@@ -1,5 +1,5 @@
 .NavbarItems{
-    background: #E0003E;
+    background: #000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,7 +43,7 @@
 }
 
 .nav-links:hover{
-    background-color: #FA003E;
+    background-color: #f67d34;
     border-radius: 4px;
     transition: all 0.2s ease-out;
 }
@@ -78,7 +78,7 @@
     }
 
     .nav-menu.active{
-        background: #FF0040;
+        background: #f67d34;
         left: 0;
         opacity: 1;
         transition: all 0.5s ease;
@@ -113,7 +113,7 @@
         color: #fff;
         font-size: 2rem;
     }
-
+    /*
     .nav-links-mobile{
         display: block;
         color: black;
@@ -126,6 +126,7 @@
         text-decoration: none;
         font-size: 1.2rem;
     }
+    */
 
     .linha{
         border-bottom: solid 1px #fff;
