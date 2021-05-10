@@ -48,8 +48,8 @@ class Home extends Component {
                     </div>
                     <h3 className="activity" >Nível de atividade</h3>
                     <div className={this.state.clickedActivity === 0 ? "description-activity" : "description-hidden"} >
-                        <p className="description-activity-p"><strong>Sedentário:</strong>Ex ipsum eiusmod nisi reprehenderit qui deserunt in duis enim consequat do magna reprehenderit non. 
-                        Enim sunt deserunt cillum laborum quis id et. Irure reprehenderit laborum tempor non sunt consectetur reprehenderit.</p>
+                            <p className="description-activity-p"><strong>Sedentário:</strong>Ex ipsum eiusmod nisi reprehenderit qui deserunt in duis enim consequat do magna reprehenderit non. 
+                            Enim sunt deserunt cillum laborum quis id et. Irure reprehenderit laborum tempor non sunt consectetur reprehenderit.</p>
                     </div>
 
                     <div className={this.state.clickedActivity === 1 ? "description-activity" : "description-hidden"}>
@@ -72,13 +72,25 @@ class Home extends Component {
                         Enim sunt deserunt cillum laborum quis id et. Irure reprehenderit laborum tempor non sunt consectetur reprehenderit.</p>
                     </div>
 
-                    <ul className="progress-bar">
-                        <li className={this.state.clickedActivity === 0 ? "active" : ""} onClick={() => this.handleClickActivity(0)}>Sedentário</li>
-                        <li className={this.state.clickedActivity === 1 ? "active" : ""} onClick={() => this.handleClickActivity(1)}>Levemente ativo</li>
-                        <li className={this.state.clickedActivity === 2 ? "active" : ""} onClick={() => this.handleClickActivity(2)}>Moderamente ativo</li>
-                        <li className={this.state.clickedActivity === 3 ? "active" : ""} onClick={() => this.handleClickActivity(3)}>Muito ativo</li>
-                        <li className={this.state.clickedActivity === 4 ? "active" : ""} onClick={() => this.handleClickActivity(4)}>Extremamente ativo</li>
-                    </ul>
+                    <div className="activity-section">
+                        <ul className="progress-bar">
+                            <li className={this.state.clickedActivity === 0 ? "active" : ""} onClick={() => this.handleClickActivity(0)}>Sedentário</li>
+                            <li className={this.state.clickedActivity === 1 ? "active" : ""} onClick={() => this.handleClickActivity(1)}>Levemente ativo</li>
+                            <li className={this.state.clickedActivity === 2 ? "active" : ""} onClick={() => this.handleClickActivity(2)}>Moderamente ativo</li>
+                            <li className={this.state.clickedActivity === 3 ? "active" : ""} onClick={() => this.handleClickActivity(3)}>Muito ativo</li>
+                            <li className={this.state.clickedActivity === 4 ? "active" : ""} onClick={() => this.handleClickActivity(4)}>Extremamente ativo</li>
+                        </ul>
+                    </div>
+
+                    <div className="activity-mobile">
+                        <select className="select">
+                            <option onClick={() => this.handleClickActivity(0)}>Sedentário</option>
+                            <option onClick={() => this.handleClickActivity(1)}>Levemente ativo</option>
+                            <option onClick={() => this.handleClickActivity(2)}>Moderamente ativo</option>
+                            <option onClick={() => this.handleClickActivity(3)}>Muito ativo</option>
+                            <option onClick={() => this.handleClickActivity(4)}>Extremamente ativo</option>
+                        </select>
+                    </div>
                     
                 </form>
                 

@@ -98,7 +98,6 @@ input:focus::placeholder{
 }
 
 strong{
-    margin-left: 5px;
     color: #fff;
 }
 
@@ -111,6 +110,7 @@ strong{
     color: #fff;
     margin-left: 5px;
     text-align: justify;
+    margin-right: 5px;
 }
 
 .progress-bar{
@@ -168,7 +168,17 @@ strong{
     display: none;
 }
 
-
+.select{
+    border: 2px solid #fff;
+    width: 230px;
+    margin: 10px;
+    background: transparent;
+    padding: 12px;
+    border-radius: 20px;
+    outline: none;
+    color: white;
+    font-size: 14px;
+}
 
 
 
@@ -176,6 +186,10 @@ strong{
 @media screen and (min-width: 960px) {
     .home-container{
         width: 40%;
+    }
+
+    .activity-mobile{
+        display: none;
     }
 }
 
@@ -188,5 +202,9 @@ strong{
 
     .input-age-weight-height{
         margin: 10px;
+    }
+
+    .activity-section{
+        display: none;
     }
 }
