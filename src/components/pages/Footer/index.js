@@ -28,7 +28,7 @@ function Footer() {
               type='email'
               placeholder='Seu email'
             />
-            <Button buttonStyle='btn--outline'>Inscrever-se</Button>
+            <Button buttonStyle='btn--outline' type="button">Inscrever-se</Button>
           </form>
         </div>
       </section>

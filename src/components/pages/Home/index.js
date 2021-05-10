@@ -10,8 +10,8 @@ function Home() {
             <form className="calculator">
                 <h3 className="params" >Parâmetros corporais</h3>
                 <div className="buttons-sex">
-                    <Button buttonStyle="btn--outline">MASCULINO</Button>
-                    <Button buttonStyle="btn--outline">FEMININO</Button>
+                    <Button buttonStyle="btn--sex" buttonSize="btn--sex-size" type="button">MASCULINO</Button>
+                    <Button buttonStyle="btn--sex" buttonSize="btn--sex-size" type="button">FEMININO</Button>
                 </div>
             </form>
             

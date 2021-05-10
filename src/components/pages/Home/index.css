@@ -9,8 +9,7 @@
 
 .buttons-sex{
     display: flex;
-    justify-content: space-around;
-    
+    justify-content: center;
 }
 
 .params{
@@ -29,5 +28,4 @@
     .home-container{
         width: 40%;
     }
-
 }
