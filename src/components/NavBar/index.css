@@ -1,9 +1,5 @@
 .NavbarItems{
-<<<<<<< HEAD
     background: #000;
-=======
-    background: #E0003E;
->>>>>>> 047ff9dea0d9ead8e59813794c192dc5ecee1325
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,33 +36,22 @@
 }
 
 .nav-links{
-<<<<<<< HEAD
     color: #fff;
     font-weight: bold;
-=======
-    color: white;
->>>>>>> 047ff9dea0d9ead8e59813794c192dc5ecee1325
     text-decoration: none;
     padding: 0.5rem 1rem;
 }
 
 .nav-links:hover{
-<<<<<<< HEAD
     background-color: #f67d34;
-=======
-    background-color: #FA003E;
->>>>>>> 047ff9dea0d9ead8e59813794c192dc5ecee1325
     border-radius: 4px;
     transition: all 0.2s ease-out;
 }
 
-<<<<<<< HEAD
 .nav-links-mobile{
     display: none;
 }
 
-=======
->>>>>>> 047ff9dea0d9ead8e59813794c192dc5ecee1325
 .fa-bars{
     color: #fff;
 }
@@ -84,11 +69,7 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-<<<<<<< HEAD
         height: 200px;
-=======
-        height: 284px;
->>>>>>> 047ff9dea0d9ead8e59813794c192dc5ecee1325
         position: absolute;
         top: 80px;
         left: -100%;
@@ -97,11 +78,7 @@
     }
 
     .nav-menu.active{
-<<<<<<< HEAD
         background: #20201f;
-=======
-        background: #FF0040;
->>>>>>> 047ff9dea0d9ead8e59813794c192dc5ecee1325
         left: 0;
         opacity: 1;
         transition: all 0.5s ease;
@@ -113,15 +90,7 @@
         padding: 2rem;
         width: 100%;
         display: table;
-<<<<<<< HEAD
         border-color: white;
-=======
-    }
-
-    .nav-links:hover{
-        background-color: #FF0076;
-        border-radius: 0;
->>>>>>> 047ff9dea0d9ead8e59813794c192dc5ecee1325
     }
 
     .navbar-logo{
@@ -144,7 +113,6 @@
         color: #fff;
         font-size: 2rem;
     }
-<<<<<<< HEAD
     /*
     .nav-links-mobile{
         display: block;
@@ -169,6 +137,4 @@
         display: none;
     }
     */
-=======
->>>>>>> 047ff9dea0d9ead8e59813794c192dc5ecee1325
 }
