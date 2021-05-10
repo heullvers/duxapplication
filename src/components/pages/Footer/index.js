@@ -37,7 +37,7 @@ function Footer() {
           <div className='footer-logo'>
           <BrowserRouter><Link to='/' className='social-logo'>Dux<img alt="description" className="navbar-logo-image" src={Duck}/></Link></BrowserRouter>
           </div>
-          <small className='website-rights'>DUX © 2021</small>
+          <small className='website-rights'>DUX © 2021 - Desenhado por Karol Ortyl</small>
           <div className='social-icons'>
           <BrowserRouter><Link className='social-icon-link' to='/' target='_blank' aria-label='Facebook'><FaFacebook /></Link>
           </BrowserRouter>

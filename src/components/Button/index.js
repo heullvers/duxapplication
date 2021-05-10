@@ -2,7 +2,7 @@ import React from 'react';
 import './index.css';
 
 const STYLES= ['btn--primary', 'btn--outline', 'btn--sex', 'btn--sex-pressed'];
-const SIZES = ['btn--medium', 'btn--large', 'btn--sex-size'];
+const SIZES = ['btn--medium', 'btn--large', 'btn--sex-size', 'btn--calculate-size'];
 
 export const Button = ({
     children,

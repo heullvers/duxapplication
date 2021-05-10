@@ -4,7 +4,7 @@ import './index.css';
 
 class Home extends Component {
 
-    state = {clicked: false, clickedActivity: 0};
+    state = {clicked: false, clickedActivity: 0, clickedActivityGoal: ''};
 
     handleClick = (param) => {
         if(param === 0){
@@ -17,6 +17,10 @@ class Home extends Component {
 
     handleClickActivity = (param) => {
         this.setState({clickedActivity: param});
+    }
+
+    handleClickGoal = (param) => {
+        this.setState({clickedActivityGoal: param});
     }
 
     
@@ -90,6 +94,25 @@ class Home extends Component {
                             <option onClick={() => this.handleClickActivity(3)}>Muito ativo</option>
                             <option onClick={() => this.handleClickActivity(4)}>Extremamente ativo</option>
                         </select>
+                    </div>
+                    
+                    <h3 className="activity" >Objetivo</h3>
+                    <div className="goals">
+                        <Button buttonStyle={this.state.clickedActivityGoal === 0 ? "btn--sex-pressed" : "btn--sex"} buttonSize="btn--sex-size" type="button" onClick={() => this.handleClickGoal(0)}>EMAGRECER</Button>
+                        <Button buttonStyle={this.state.clickedActivityGoal === 1 ? "btn--sex-pressed" : "btn--sex"} buttonSize="btn--sex-size" type="button" onClick={() => this.handleClickGoal(1)}>MANTER</Button>
+                        <Button buttonStyle={this.state.clickedActivityGoal === 2 ? "btn--sex-pressed" : "btn--sex"} buttonSize="btn--sex-size" type="button" onClick={() => this.handleClickGoal(2)}>GANHAR</Button>
+                    </div>
+
+                    <div className="goals-mobile">
+                        <select className="select">
+                            <option>Emagrecer</option>
+                            <option>Manter</option>
+                            <option>Ganhar</option>
+                        </select>
+                    </div>
+
+                    <div className="submit">
+                        <Button buttonStyle="btn--sex-pressed" buttonSize="btn--calculate-size" type="button">Calcular</Button>
                     </div>
                     
                 </form>

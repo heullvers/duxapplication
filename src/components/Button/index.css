@@ -44,6 +44,15 @@
     font-size: 20px;
 }
 
+.btn--calculate-size{
+    padding: 15px 20px;
+    margin: 20px 5px;
+    width: 50% !important;
+    -ms-transform: skewX(-20deg);
+    -webkit-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+}
+
 .btn--sex-size{
     padding: 20px 80px;
     margin: 20px 5px;

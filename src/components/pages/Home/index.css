@@ -125,6 +125,7 @@ strong{
     text-align: center;
     font-weight: 900;
     color: #fff;
+    cursor: pointer;
     
 }
 
@@ -168,9 +169,18 @@ strong{
     display: none;
 }
 
+.activity-section{
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.activity-mobile{
+    margin-bottom: 20px;
+}
+
 .select{
     border: 2px solid #fff;
-    width: 230px;
+    width: 60%;
     margin: 10px;
     background: transparent;
     padding: 12px;
@@ -180,8 +190,10 @@ strong{
     font-size: 14px;
 }
 
-
-
+.submit{
+    display: flex;
+    justify-content: center;
+}
 
 @media screen and (min-width: 960px) {
     .home-container{
@@ -191,6 +203,11 @@ strong{
     .activity-mobile{
         display: none;
     }
+
+    .goals-mobile{
+        display: none;
+    }
+    
 }
 
 @media screen and (max-width: 960px) {
@@ -207,4 +224,10 @@ strong{
     .activity-section{
         display: none;
     }
+
+    .goals{
+        display: none;
+    }
+
+    
 }
