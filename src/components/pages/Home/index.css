@@ -7,6 +7,15 @@
     
 }
 
+.description{
+    color: #000;
+    margin: 5px;
+}
+
+h4{
+    margin-left: 5px;
+}
+
 .buttons-sex{
     display: flex;
     justify-content: center;

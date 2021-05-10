@@ -19,9 +19,9 @@
 .btn--sex{
     background-color: #e96f26;
     font-weight: bold;
-    color: #fff;
+    color: #92471a;
     padding: 8px 20px;
-    border: 1px solid var(--primary);
+    border: 1px solid #e96f26;
     transition: all 0.3s ease-out;
 }
 
@@ -55,7 +55,7 @@
     transition: all 0.3s ease-out;
 }
 
-.btn--sex:hover{
+.btn--sex-pressed{
     background: #000;
     font-weight: bold;
     color: #fff;
