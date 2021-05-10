@@ -12,4 +12,8 @@ ReactDOM.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+<<<<<<< HEAD
 //reportWebVitals();
+=======
+//reportWebVitals();
+>>>>>>> 047ff9dea0d9ead8e59813794c192dc5ecee1325
