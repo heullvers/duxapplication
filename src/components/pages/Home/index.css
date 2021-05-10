@@ -109,7 +109,8 @@ strong{
 
 .description-activity-p{
     color: #fff;
-    margin-left: 10px;
+    margin-left: 5px;
+    text-align: justify;
 }
 
 .progress-bar{
@@ -119,7 +120,7 @@ strong{
 .progress-bar li{
     list-style: none;
     float: left;
-    width: 25%;
+    width: 20%;
     position: relative;
     text-align: center;
     font-weight: 900;
