@@ -28,6 +28,21 @@ class Home extends Component {
                         <Button buttonStyle={!this.state.clicked ? "btn--sex-pressed" : "btn--sex"} buttonSize="btn--sex-size" type="button"  onClick={() => this.handleClick(0)}>MASCULINO</Button>
                         <Button buttonStyle={this.state.clicked ? "btn--sex-pressed" : "btn--sex"} buttonSize="btn--sex-size" type="button"  onClick={() => this.handleClick(1)}>FEMININO</Button>
                     </div>
+                    <div className="age-weight-height">
+                        <label className="custom-field">
+                            <input className="input-age-weight-height" type="text" placeholder="Idade"/>
+                            <span className="placeholder">Idade</span>
+                        </label>
+                        <label className="custom-field">
+                            <input className="input-age-weight-height" type="text" placeholder="Peso (kg)"/>
+                            <span className="placeholder">Peso (kg)</span>
+                        </label>
+                        <label className="custom-field">
+                            <input className="input-age-weight-height" type="text" placeholder="Altura (cm)"/>
+                            <span className="placeholder">Altura (cm)</span>
+                        </label>
+                    </div>
+                    <h4 className="activity" >Nível de atividade</h4>
                 </form>
                 
             </div>

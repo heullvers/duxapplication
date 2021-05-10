@@ -9,11 +9,12 @@
 
 .description{
     color: #000;
-    margin: 5px;
+    margin: 20px 5px;
 }
 
 h4{
     margin-left: 5px;
+    font-weight: 100;
 }
 
 .buttons-sex{
@@ -33,8 +34,87 @@ h4{
     text-align: center;
 }
 
+.age-weight-height{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.input-age-weight-height{
+    border: 2px solid #e96f26;
+    appearance: none;
+    background: transparent;
+    padding: 12px;
+    border-radius: 20px;
+    outline: none;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.custom-field{
+    position: relative;
+    font-size: 14px;
+    padding-top: 20px;
+    margin-bottom: 5px;
+}
+
+.custom-field .placeholder{
+    position: absolute;
+    left: 12px;
+    top: calc(50% + 10px);
+    transform: translateY(-50%);
+    color: transparent;
+    transition: top 0.3 ease,
+    font-size 0.3s ease,
+    color 0.3s ease 
+}
+
+.custom-field input:focus + .placeholder{
+    top: 10px;
+    font-size: 10px;
+    color: #fff;
+}
+
+
+input::placeholder{
+    font-size: 14px;
+    font-weight: 900;
+    color: #fff;
+    transition: color 0.9s ease;
+}
+
+input:focus{
+    background-color: #fff;
+}
+
+input:focus::placeholder{
+    color: transparent;
+}
+
+.activity{
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+
+
+
+
 @media screen and (min-width: 960px) {
     .home-container{
         width: 40%;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .age-weight-height{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .input-age-weight-height{
+        margin: 10px;
     }
 }
