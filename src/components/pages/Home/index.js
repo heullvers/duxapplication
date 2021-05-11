@@ -52,27 +52,27 @@ class Home extends Component {
                     </div>
                     <h3 className="activity" >Nível de atividade</h3>
                     <div className={this.state.clickedActivity === 0 ? "description-activity" : "description-hidden"} >
-                            <p className="description-activity-p"><strong>Sedentário:</strong>Ex ipsum eiusmod nisi reprehenderit qui deserunt in duis enim consequat do magna reprehenderit non. 
+                            <p className="description-activity-p"><strong>Sedentário: </strong>Ex ipsum eiusmod nisi reprehenderit qui deserunt in duis enim consequat do magna reprehenderit non. 
                             Enim sunt deserunt cillum laborum quis id et. Irure reprehenderit laborum tempor non sunt consectetur reprehenderit.</p>
                     </div>
 
                     <div className={this.state.clickedActivity === 1 ? "description-activity" : "description-hidden"}>
-                        <p className="description-activity-p"><strong>Levemente ativo:</strong>Ex ipsum eiusmod nisi reprehenderit qui deserunt in duis enim consequat do magna reprehenderit non. 
+                        <p className="description-activity-p"><strong>Levemente ativo: </strong>Ex ipsum eiusmod nisi reprehenderit qui deserunt in duis enim consequat do magna reprehenderit non. 
                         Enim sunt deserunt cillum laborum quis id et. Irure reprehenderit laborum tempor non sunt consectetur reprehenderit.</p>
                     </div>
 
                     <div className={this.state.clickedActivity === 2 ? "description-activity" : "description-hidden"}>
-                        <p className="description-activity-p"><strong>Moderamente ativo:</strong>Ex ipsum eiusmod nisi reprehenderit qui deserunt in duis enim consequat do magna reprehenderit non. 
+                        <p className="description-activity-p"><strong>Moderamente ativo: </strong>Ex ipsum eiusmod nisi reprehenderit qui deserunt in duis enim consequat do magna reprehenderit non. 
                         Enim sunt deserunt cillum laborum quis id et. Irure reprehenderit laborum tempor non sunt consectetur reprehenderit.</p>
                     </div>
 
                     <div className={this.state.clickedActivity === 3 ? "description-activity" : "description-hidden"}>
-                        <p className="description-activity-p"><strong>Muito ativo:</strong>Ex ipsum eiusmod nisi reprehenderit qui deserunt in duis enim consequat do magna reprehenderit non. 
+                        <p className="description-activity-p"><strong>Muito ativo: </strong>Ex ipsum eiusmod nisi reprehenderit qui deserunt in duis enim consequat do magna reprehenderit non. 
                         Enim sunt deserunt cillum laborum quis id et. Irure reprehenderit laborum tempor non sunt consectetur reprehenderit.</p>
                     </div>
 
                     <div className={this.state.clickedActivity === 4 ? "description-activity" : "description-hidden"} >
-                        <p className="description-activity-p"><strong>Extremamente ativo:</strong>Ex ipsum eiusmod nisi reprehenderit qui deserunt in duis enim consequat do magna reprehenderit non. 
+                        <p className="description-activity-p"><strong>Extremamente ativo: </strong>Ex ipsum eiusmod nisi reprehenderit qui deserunt in duis enim consequat do magna reprehenderit non. 
                         Enim sunt deserunt cillum laborum quis id et. Irure reprehenderit laborum tempor non sunt consectetur reprehenderit.</p>
                     </div>
 
@@ -96,7 +96,7 @@ class Home extends Component {
                         </select>
                     </div>
                     
-                    <h3 className="activity" >Objetivo</h3>
+                    <h3 className="activity">Objetivo</h3>
                     <div className="goals">
                         <Button buttonStyle={this.state.clickedActivityGoal === 0 ? "btn--sex-pressed" : "btn--sex"} buttonSize="btn--sex-size" type="button" onClick={() => this.handleClickGoal(0)}>EMAGRECER</Button>
                         <Button buttonStyle={this.state.clickedActivityGoal === 1 ? "btn--sex-pressed" : "btn--sex"} buttonSize="btn--sex-size" type="button" onClick={() => this.handleClickGoal(1)}>MANTER</Button>
@@ -111,11 +111,22 @@ class Home extends Component {
                         </select>
                     </div>
 
+                    <h3 className="percentage">Percentual de gordura (opcional)</h3>
+                    <div className="percentage-section">
+                        <label className="custom-field">
+                            <input className="input-percentage" type="text" placeholder="BF(%)"/>
+                            <span className="placeholder">BF(%)</span>
+                        </label>
+                    </div>
+
                     <div className="submit">
                         <Button buttonStyle="btn--sex-pressed" buttonSize="btn--calculate-size" type="button">Calcular</Button>
                     </div>
-                    
                 </form>
+
+                <div className="result">
+                    <h3 className="your-result">Seu resultado</h3>
+                </div>
                 
             </div>
     

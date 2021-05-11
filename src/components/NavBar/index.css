@@ -1,5 +1,5 @@
 .NavbarItems{
-    background: #000;
+    background: #48F08E;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,7 +43,7 @@
 }
 
 .nav-links:hover{
-    background-color: #f67d34;
+    background-color: #3CC776;
     border-radius: 4px;
     transition: all 0.2s ease-out;
 }
@@ -78,7 +78,7 @@
     }
 
     .nav-menu.active{
-        background: #20201f;
+        background: #20A4F3;
         left: 0;
         opacity: 1;
         transition: all 0.5s ease;
