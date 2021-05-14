@@ -14,12 +14,17 @@ export const MenuItems = [
     },
     */
     {
-        title: 'SOBRE',
+        title: 'CALCULADORAS',
         url: '#',
         cName: 'nav-links'
     },
     {
-        title: 'FAQ',
+        title: 'ALIMENTOS',
+        url: '#',
+        cName: 'nav-links'
+    },
+    {
+        title: 'SOBRE',
         url: '#',
         cName: 'nav-links'
     },

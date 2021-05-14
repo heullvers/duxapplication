@@ -1,0 +1,82 @@
+.result{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.result-text{margin-left: 5px;}
+
+.spent{
+    text-align: center;
+}
+
+.calories-spend{
+    font-size: 150px;
+    font-family: 'Anton', sans-serif;
+    text-align: center;
+}
+
+.kcal{
+    font-size: 40px;
+    font-family: 'Anton', sans-serif;
+}
+
+.description-calories{
+    text-align: center;
+    margin-top: -20px;
+    margin-left: 5px;
+}
+
+.title-macronutrients{
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Fugaz One', cursive;
+    margin-top: 20px;
+    
+}
+
+.divider{
+    background-color: #000;
+    height: 15px;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.row-cards{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card{
+    background: #fff;
+    border: 1px solid #ccc;
+    margin-bottom: 50px;
+    transition: 0.3s;
+    margin: 20px;
+    width: 90%;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: row;
+    padding: 30px 20px;
+    text-align: start;
+    font-size: 18px;
+    justify-content: space-around;
+}
+
+.basal{
+    margin: 20px;
+}
+
+@media screen and (max-width: 960px) {
+    .calories-spend{
+        font-size: 90px;
+    }
+
+    .kcal{
+        font-size: 20px;
+    }
+}

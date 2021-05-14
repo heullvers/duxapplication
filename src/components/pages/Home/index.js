@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Button } from '../../Button';
 import './index.css';
-import Carousel from 'react-elastic-carousel';
-import ItemCarousel from '../../ItemCarousel';
+import Result from '../Result';
+import Sugestion from '../Sugestion';
 
 class Home extends Component {
 
@@ -24,15 +24,6 @@ class Home extends Component {
     handleClickGoal = (param) => {
         this.setState({clickedActivityGoal: param});
     }
-
-    breakPoints = [
-        {width: 1, itemToShow: 1},
-        {width: 550, itemToShow: 2},
-        {width: 768, itemToShow: 3},
-        {width: 1200, itemToShow: 4},
-    ]
-
-    
 
     render(){
         return (
@@ -132,97 +123,8 @@ class Home extends Component {
                         <Button buttonStyle="btn--sex-pressed" buttonSize="btn--calculate-size" type="button">Calcular</Button>
                     </div>
                 </form>
-
-                <div className="result">
-                    <h2 className="result-text">Seu resultado</h2>
-                    <div className="spent">
-                        <span className="calories-spend">{2499}</span> <span className="kcal">kcal</span>
-                        <p className="description-calories">Número aproximado de calorias gastas <strong>por dia.</strong></p>
-                    </div>
-                    <div className="macronutrients">
-                        <h2 className="title-macronutrients">MACRONUTRIENTES</h2>
-                    </div>
-                    <div className="divider">
-                    </div>
-
-                    
-
-                    <div className="row-cards">
-                        <div className="card">
-                            <div className="card-header card1">
-                                <h3>Recomendado</h3>
-                            </div>
-                            <div className="card-body">
-                            <table>
-                        <tr>
-                            <th>Macronutriente</th>
-                            <th>Quantidade</th>
-                        </tr>
-
-                        <tr>
-                            <td>Carboidrato</td>
-                            <td>{150}<strong>g</strong>/ ({40} <strong>%</strong>)</td>
-                        </tr>
-
-                        <tr>
-                            <td>Proteína</td>
-                            <td>{160}<strong>g</strong>/ ({40} <strong>%</strong>)</td>
-                        </tr>
-
-                        <tr>
-                            <td>Gordura</td>
-                            <td>{80}<strong>g</strong>/ ({120} <strong>%</strong>)</td>
-                        </tr>
-                    </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <h2 className="products-recomm-text">Sugestão de suplementos</h2>
-
-                <Carousel breakPoints={this.breakPoints}>
-                    <ItemCarousel><div className="product-img-text">
-                        <img src="https://www.gsuplementos.com.br/upload/growth-layout-personalizado/produto/185/produto.png" alt="whey" className="product-size-w"/>
-                        <div className="product">
-                            <h6>WHEY PROTEIN</h6>
-                        </div>
-                        
-                    </div></ItemCarousel>
-                    <ItemCarousel><div className="product-img-text">
-                        <img src="https://www.gsuplementos.com.br/upload/growth-layout-personalizado/produto/107/multivitaminico-84g.webp" alt="multivitaminico" className="product-size-m"/>
-                        <div className="product">
-                            <h6>MULTIVITAMÍNICO</h6>
-                        </div>
-                    </div></ItemCarousel>
-                    <ItemCarousel><div className="product-img-text">
-                        <img src="https://www.gsuplementos.com.br/upload/growth-layout-personalizado/produto/70/creatina.webp" alt="creatina" className="product-size-cr"/>
-                        <div className="product">
-                            <h6>CREATINA</h6>
-                        </div>
-                    </div></ItemCarousel>
-                    <ItemCarousel><div className="product-img-text">
-                        <img src="https://www.gsuplementos.com.br/upload/produto/imagem/b_cafe-na-210mg-120-caps-growth-supplements-thermog-nico.jpg" alt="cafeina" className="product-size-ca"/>
-                        <div className="product">
-                            <h6>CAFEÍNA</h6>
-                        </div>
-                    </div></ItemCarousel>
-                    <ItemCarousel><div className="product-img-text">
-                        <img src="https://www.gsuplementos.com.br/upload/growth-layout-personalizado/produto/82/hipercalorico-1kg.webp" alt="hipercalorico" className="product-size-h"/>
-                        <div className="product">
-                            <h6>HIPERCALÓRICO</h6>
-                        </div>
-                    </div></ItemCarousel>
-                </Carousel>
-
-                <div className="recommendation-products">
-                    
-                    
-                    
-                    
-                    
-                </div>
-                
+                <Result></Result>
+                <Sugestion></Sugestion>
             </div>
     
         );

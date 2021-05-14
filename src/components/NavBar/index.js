@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import {MenuItems} from './MenuItems';
 import './index.css';
 import Duck from './../../images/duck.png';
-//import { Button } from '../Button';
 
 class NavBar extends Component{
 
@@ -25,7 +23,16 @@ class NavBar extends Component{
                 </div>
 
                 <ul className={this.state.clicked? 'nav-menu active' : 'nav-menu'} >
-                    {MenuItems.map((item, index)=>{
+                    <li className="linha">
+                        <a href='#t' className="nav-links">CALCULADORAS</a>
+                    </li>
+                    <li className="linha">
+                        <a href="#t" className="nav-links">ALIMENTOS</a>
+                    </li>
+                    <li className="linha">
+                        <a href="#t" className="nav-links">SOBRE</a>
+                    </li>
+                    {/* {MenuItems.map((item, index)=>{
                         return(
                             <li key={index} className="linha">
                                 <a className={item.cName} href={item.url}>
@@ -33,7 +40,7 @@ class NavBar extends Component{
                                 </a>
                             </li>
                         );
-                    })}
+                    })} */}
                 </ul>
                 {/* <Button buttonStyle="btn--outline">ENTRAR</Button> */}
                 
