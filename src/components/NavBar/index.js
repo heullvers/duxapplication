@@ -4,11 +4,16 @@ import Duck from './../../images/duck.png';
 
 class NavBar extends Component{
 
-    state = {clicked: false};
+    state = {clicked: false, clickeddropdown: false};
 
     handleClick = () => {
         this.setState({clicked: !this.state.clicked})
     }
+
+    handleClickDropdown = () => {
+        this.setState({clickeddropdown: !this.state.clickeddropdown})
+    }
+
 
     render(){
         return (
@@ -23,13 +28,21 @@ class NavBar extends Component{
                 </div>
 
                 <ul className={this.state.clicked? 'nav-menu active' : 'nav-menu'} >
-                    <li className="linha">
-                        <a href='#t' className="nav-links">CALCULADORAS</a>
+                    <li className="nav-top">
+                        <a href='#t' className="nav-links" onClick={() => this.handleClickDropdown()}>CALCULADORAS <i className="fas fa-chevron-down"></i></a>
+                        <ul className={this.state.clickeddropdown? 'dropdown-active dropdown-content dropdown' : 'dropdown-desactive dropdown'}>
+                            <li className="first"><a href="#t" className="dropdown-text">Dieta flexível</a></li>
+                            <li><a href="#t" className="dropdown-text">Percentual de gordura</a></li>
+                        </ul>
                     </li>
-                    <li className="linha">
+
+                    
+                    
+
+                    <li>
                         <a href="#t" className="nav-links">ALIMENTOS</a>
                     </li>
-                    <li className="linha">
+                    <li>
                         <a href="#t" className="nav-links">SOBRE</a>
                     </li>
                     {/* {MenuItems.map((item, index)=>{

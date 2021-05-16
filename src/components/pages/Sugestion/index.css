@@ -7,6 +7,8 @@
 .recommendation-products{
     display: flex;
     margin-bottom: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .product-img-text{
