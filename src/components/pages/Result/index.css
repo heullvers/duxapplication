@@ -80,6 +80,11 @@ th{
     padding-right: 10px;
 }
 
+.result-component{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 @media screen and (max-width: 960px) {
     .calories-spend{
         font-size: 90px;

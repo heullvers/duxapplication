@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './index.css';
 import Duck from './../../images/duck.png';
+import {Link} from 'react-router-dom';
 
 class NavBar extends Component{
 
@@ -18,10 +19,12 @@ class NavBar extends Component{
     render(){
         return (
             <nav className="NavbarItems">
-                <div className="navbar-logo">   
-                    <h1 className="navbar-logo-name">Dux</h1>
-                    <img alt="description" className="navbar-logo-image" src={Duck}/>
-                </div>
+                <Link to="/" className="logo-submit">
+                    <div className="navbar-logo">   
+                        <h1 className="navbar-logo-name">Dux</h1>
+                        <img alt="description" className="navbar-logo-image" src={Duck}/>
+                    </div>
+                </Link>
                 
                 <div className="menu-icon" onClick={this.handleClick} >
                     <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
@@ -31,19 +34,16 @@ class NavBar extends Component{
                     <li className="nav-top">
                         <a href='#t' className="nav-links" onClick={() => this.handleClickDropdown()}>CALCULADORAS <i className="fas fa-chevron-down"></i></a>
                         <ul className={this.state.clickeddropdown? 'dropdown-active dropdown-content dropdown' : 'dropdown-desactive dropdown'}>
-                            <li className="first"><a href="#t" className="dropdown-text">Dieta flexível</a></li>
-                            <li><a href="#t" className="dropdown-text">Percentual de gordura</a></li>
+                            <li className="first"><Link className="dropdown-text" to="/" onClick={this.handleClick}>Dieta flexível</Link></li>
+                            <li><Link to="/bf" className="dropdown-text" onClick={this.handleClick}>Percentual de gordura</Link></li>
                         </ul>
-                    </li>
-
-                    
-                    
+                    </li>                
 
                     <li>
-                        <a href="#t" className="nav-links">ALIMENTOS</a>
+                        <Link className="nav-links" to="/foods" onClick={this.handleClick}>ALIMENTOS</Link>
                     </li>
                     <li>
-                        <a href="#t" className="nav-links">SOBRE</a>
+                        <Link className="nav-links" to="/about" onClick={this.handleClick}>SOBRE</Link>
                     </li>
                     {/* {MenuItems.map((item, index)=>{
                         return(

@@ -1,14 +1,19 @@
 import NavBar from "./components/NavBar";
 import './App.css';
-import Home from "./components/pages/Home";
 import Footer from "./components/pages/Footer";
+import {BrowserRouter} from "react-router-dom";
+import Routes from './Routes';
 
 function App() {
   return (
     <>
-      <NavBar/>
-      <Home/>
-      <Footer/>
+        <BrowserRouter>
+          <NavBar/>
+          <Routes />
+          <Footer/>
+        </BrowserRouter>
+        
+      
     </>
   );
 }

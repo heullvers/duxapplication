@@ -264,11 +264,20 @@ h6{
 .swiper-container {
     width: 600px;
     height: 300px;
-  }
+}
 
-  .th{
-      margin-right: 5px;
-  }
+.btn-submit{
+    text-decoration: none;
+    color: #fff;
+}
+
+.logo-submit{
+    text-decoration: none;
+}
+
+.th{
+    margin-right: 5px;
+}
 
 @media screen and (min-width: 960px) {
     .home-container{

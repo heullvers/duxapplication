@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from '../../Button';
 import './index.css';
-import Result from '../Result';
-import Sugestion from '../Sugestion';
+import {Link} from 'react-router-dom';
 
 class Home extends Component {
 
@@ -119,12 +118,12 @@ class Home extends Component {
                         </label>
                     </div>
 
-                    <div className="submit">
-                        <Button buttonStyle="btn--sex-pressed" buttonSize="btn--calculate-size" type="button">Calcular</Button>
-                    </div>
+                    <Link to="/result" className="btn-submit">
+                        <div className="submit">
+                            <Button buttonStyle="btn--sex-pressed" buttonSize="btn--calculate-size" type="button">Calcular</Button>
+                        </div>
+                    </Link>
                 </form>
-                <Result></Result>
-                <Sugestion></Sugestion>
             </div>
     
         );
