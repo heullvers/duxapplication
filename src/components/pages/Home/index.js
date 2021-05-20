@@ -22,10 +22,16 @@ const Home = () => {
     });
 
     //state = {clicked: false, clickedActivity: 0, clickedActivityGoal: ''};
-    const [clicked, setHandleClick] = useState('');
-    const [clickedActivity, setHandleClickActivity] = useState('');
-    const [clickedActivityGoal, setHandleClickActivityGoal] = useState('');
+    const [clicked, setHandleClick] = useState(0);
+    const [clickedActivity, setHandleClickActivity] = useState(undefined);
+    const [clickedPhysique, setHandleClickPhysique] = useState(undefined);
+    const [clickedActivityGoal, setHandleClickActivityGoal] = useState(undefined);
+
     //gender: '' , age: '', weight: '', height: '', activity: '', goal: '', bf: ''
+
+    const [errorPhysique, setErrorPhysique] = useState(undefined);
+    const [errorActivity, setError] = useState(undefined);
+    const [errorActivityGoal, setErrorGoal] = useState(undefined);
 
     const handleClick = () => {
         setHandleClick(!clicked);
@@ -33,13 +39,89 @@ const Home = () => {
     
     const handleClickActivity = (param)=>{
         setHandleClickActivity(param);
+        handleErrorActivity(false);
+    }
+
+    const handleClickPhysique = (param)=>{
+        setHandleClickPhysique(param);
+        handleErrorPhysique(false);
     }
     
     const handleClickGoal = (param)=>{
         setHandleClickActivityGoal(param);
+        handleErrorActivityGoal(false);
     }
 
-    const onSubmit = data => console.log(data);
+    const handleErrorPhysique = (param) => {
+        setErrorPhysique(param);
+    }
+
+    const handleErrorActivity = (param) => {
+        setError(param);
+    }
+
+    const handleErrorActivityGoal = (param) => {
+        setErrorGoal(param);
+    }
+
+    const calcularMetabolismoBasal = (data) => {
+        let metabolismoBasal = 0;
+        if(clicked){ //homem
+            metabolismoBasal += 66.5 + (13.75 * data.weight) + (5.003 * data.height) - (6.755 * data.age);
+        }
+        else{ //mulher
+            metabolismoBasal += 655.1 + (9.563 * data.weight) + (1.850 * data.height) - (4.676 * data.age);
+        }
+
+        return metabolismoBasal;
+    }
+
+    const calcularGet = (basal) => {
+        let get = 0;
+        if(clickedActivity === 0){
+            get = basal * 1.2;
+        }
+        else if(clickedActivity === 1){
+            get = basal * 1.375;
+        }
+        else if(clickedActivity === 2){
+            get = basal * 1.55;
+        }
+        else if(clickedActivity === 3){
+            get = basal * 1.725;
+        }
+        else{
+            get = basal * 1.9;
+        }
+
+        return get;
+    }
+
+    const onSubmit = data => {
+
+        if(clickedPhysique === undefined){
+            handleErrorPhysique(true);
+            document.getElementById('physiqueId').focus();
+            return;
+        }
+        
+        if(clickedActivity === undefined){
+            handleErrorActivity(true);
+            document.getElementById('activityId').focus();
+            return;
+        }
+
+        if(clickedActivityGoal === undefined){
+            handleErrorActivityGoal(true);
+            document.getElementById('activityGoalId').focus();
+            return; 
+        }
+
+        let basal = calcularMetabolismoBasal(data);
+        let get = calcularGet(basal);
+        console.log(get);
+        
+    };
 
 
     return (
@@ -52,6 +134,7 @@ const Home = () => {
                     <Button buttonStyle={!clicked ? "btn--sex-pressed" : "btn--sex"} buttonSize="btn--sex-size" type="button"  onClick={() => handleClick()}>MASCULINO</Button>
                     <Button buttonStyle={clicked ? "btn--sex-pressed" : "btn--sex"} buttonSize="btn--sex-size" type="button"  onClick={() => handleClick()}>FEMININO</Button>
                 </div>
+
                 <div className="age-weight-height">
                     <label className="custom-field">
                         <input className={errors.age?.message ? "input-age-weight-height errorInput" : "input-age-weight-height alright"} type="number" placeholder="Idade" name="age" {...register("age")}/>
@@ -70,30 +153,40 @@ const Home = () => {
                         <p className="errorMessage">{errors.height?.message}</p>
                     </label>
                 </div>
-                <h3 className="activity" >Nível de atividade</h3>
+
+                <h3 className="activity" id="physiqueId" tabIndex="0" >Qual seu físico atual?</h3>
+                {errorPhysique ?  <p className="errorMessage">É preciso preencher o seu físico atual</p> : null }
+                <div className="divSelectPhysique">
+                    <select className="select">
+                        <option onClick={() => handleClickPhysique(0)}>Magro</option>
+                        <option onClick={() => handleClickPhysique(1)}>Peso normal</option>
+                        <option onClick={() => handleClickPhysique(2)}>Sobrepeso</option>
+                        <option onClick={() => handleClickPhysique(3)}>Obeso</option>
+                        <option onClick={() => handleClickPhysique(4)}>Atleta</option>
+                    </select>
+                </div>
+
+                <h3 className="activity" id="activityId" tabIndex="0" >Nível de atividade</h3>
+                {errorActivity ?  <p className="errorMessage">É preciso preencher o nível de atividade</p> : null }
+                
                 <div className={clickedActivity === 0 ? "description-activity" : "description-hidden"} >
-                        <p className="description-activity-p"><strong>Sedentário: </strong>Ex ipsum eiusmod nisi reprehenderit qui deserunt in duis enim consequat do magna reprehenderit non. 
-                        Enim sunt deserunt cillum laborum quis id et. Irure reprehenderit laborum tempor non sunt consectetur reprehenderit.</p>
+                        <p className="description-activity-p"><strong>Sedentário: </strong> Pouco ou nenhum exercício.</p>
                 </div>
 
                 <div className={clickedActivity === 1 ? "description-activity" : "description-hidden"}>
-                    <p className="description-activity-p"><strong>Levemente ativo: </strong>Ex ipsum eiusmod nisi reprehenderit qui deserunt in duis enim consequat do magna reprehenderit non. 
-                    Enim sunt deserunt cillum laborum quis id et. Irure reprehenderit laborum tempor non sunt consectetur reprehenderit.</p>
+                    <p className="description-activity-p"><strong>Levemente ativo: </strong> 1-3 dias por semana.</p>
                 </div>
 
                 <div className={clickedActivity === 2 ? "description-activity" : "description-hidden"}>
-                    <p className="description-activity-p"><strong>Moderamente ativo: </strong>Ex ipsum eiusmod nisi reprehenderit qui deserunt in duis enim consequat do magna reprehenderit non. 
-                    Enim sunt deserunt cillum laborum quis id et. Irure reprehenderit laborum tempor non sunt consectetur reprehenderit.</p>
+                    <p className="description-activity-p"><strong>Moderamente ativo: </strong>3-5 dias por semana.</p>
                 </div>
 
                 <div className={clickedActivity === 3 ? "description-activity" : "description-hidden"}>
-                    <p className="description-activity-p"><strong>Muito ativo: </strong>Ex ipsum eiusmod nisi reprehenderit qui deserunt in duis enim consequat do magna reprehenderit non. 
-                    Enim sunt deserunt cillum laborum quis id et. Irure reprehenderit laborum tempor non sunt consectetur reprehenderit.</p>
+                    <p className="description-activity-p"><strong>Muito ativo: </strong>6-7 dias por semana</p>
                 </div>
 
                 <div className={clickedActivity === 4 ? "description-activity" : "description-hidden"} >
-                    <p className="description-activity-p"><strong>Extremamente ativo: </strong>Ex ipsum eiusmod nisi reprehenderit qui deserunt in duis enim consequat do magna reprehenderit non. 
-                    Enim sunt deserunt cillum laborum quis id et. Irure reprehenderit laborum tempor non sunt consectetur reprehenderit.</p>
+                    <p className="description-activity-p"><strong>Extremamente ativo: </strong>2x por dia 6-7 dias por semana.</p>
                 </div>
 
                 <div className="activity-section">
@@ -116,7 +209,8 @@ const Home = () => {
                     </select>
                 </div>
                 
-                <h3 className="activity">Objetivo</h3>
+                <h3 className="activity" id="activityGoalId" tabIndex="0">Objetivo</h3>
+                {errorActivityGoal ?  <p className="errorMessage">É preciso preencher o objetivo</p> : null }
                 <div className="goals">
                     <Button buttonStyle={clickedActivityGoal === 0 ? "btn--sex-pressed" : "btn--sex"} buttonSize="btn--sex-size" type="button" onClick={() => handleClickGoal(0)}>EMAGRECER</Button>
                     <Button buttonStyle={clickedActivityGoal === 1 ? "btn--sex-pressed" : "btn--sex"} buttonSize="btn--sex-size" type="button" onClick={() => handleClickGoal(1)}>MANTER</Button>
@@ -125,12 +219,13 @@ const Home = () => {
 
                 <div className="goals-mobile">
                     <select className="select">
-                        <option>Emagrecer</option>
-                        <option>Manter</option>
-                        <option>Ganhar</option>
+                        <option onClick={() => handleClickGoal(0)}>Emagrecer</option>
+                        <option onClick={() => handleClickGoal(1)}>Manter</option>
+                        <option onClick={() => handleClickGoal(2)}>Ganhar</option>
                     </select>
                 </div>
 
+                {/* 
                 <h3 className="percentage">Percentual de gordura (opcional)</h3>
                 <div className="percentage-section">
                     <label className="custom-field">
@@ -138,6 +233,7 @@ const Home = () => {
                         <span className="placeholder">BF(%)</span>
                     </label>
                 </div>
+                */}
 
                 {/*<Link to="/result" className="btn-submit">*/}
                     <div className="submit">

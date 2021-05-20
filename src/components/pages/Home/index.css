@@ -42,7 +42,7 @@ td{
 .age-weight-height{
     display: flex;
     justify-content: space-around;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .percentage-section{
@@ -133,7 +133,7 @@ strong{
 
 .description-activity{
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .description-activity-p{
@@ -290,6 +290,14 @@ h6{
     margin-top: 5px;
     margin-left: 5px;
     color: red;
+}
+
+.span-physique{
+    margin-left: 5px;
+}
+
+.divSelectPhysique{
+    margin-bottom: 20px;
 }
 
 @media screen and (min-width: 960px) {
