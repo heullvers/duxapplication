@@ -52,13 +52,12 @@ td{
 }
 
 .input-age-weight-height{
-    border: 2px solid #000;
     appearance: none;
     background: transparent;
     padding: 12px;
     border-radius: 20px;
     outline: none;
-    color: black;
+    color: #000;
     font-weight: bold;
     font-size: 14px;
 }
@@ -277,6 +276,20 @@ h6{
 
 .th{
     margin-right: 5px;
+}
+
+.errorInput{
+    border: 2px solid red;
+}
+
+.alright{
+    border: 2px solid #000;
+}
+
+.errorMessage{
+    margin-top: 5px;
+    margin-left: 5px;
+    color: red;
 }
 
 @media screen and (min-width: 960px) {

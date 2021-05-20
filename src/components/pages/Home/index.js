@@ -3,18 +3,32 @@ import { Button } from '../../Button';
 import './index.css';
 import {Link} from 'react-router-dom';
 import { useForm} from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
 
+let schema = yup.object().shape({
+    age: yup.number().typeError("É preciso digitar a idade").positive("A idade deve ser um número positivo").integer("A idade deve ser um número inteiro"),
+    weight: yup.number().typeError("É preciso digitar o peso").positive("O peso deve ser um número positivo"),
+    height: yup.number().typeError("É preciso digitar a altura").positive("A altura deve ser um número positivo"),
+    bf: yup.number().transform((cv, ov) => {
+        return ov === '' ? undefined : cv;
+    }),
+  });
 
 const Home = () => {
 
+    const {register, handleSubmit, formState:{ errors }} = useForm({
+        resolver: yupResolver(schema)
+    });
+
     //state = {clicked: false, clickedActivity: 0, clickedActivityGoal: ''};
-    const [clicked, setHandleClick] = useState(0);
-    const [clickedActivity, setHandleClickActivity] = useState(0);
-    const [clickedActivityGoal, setHandleClickActivityGoal] = useState(0);
+    const [clicked, setHandleClick] = useState('');
+    const [clickedActivity, setHandleClickActivity] = useState('');
+    const [clickedActivityGoal, setHandleClickActivityGoal] = useState('');
     //gender: '' , age: '', weight: '', height: '', activity: '', goal: '', bf: ''
 
-    const handleClick = (param) => {
-        setHandleClick(!param);
+    const handleClick = () => {
+        setHandleClick(!clicked);
     }
     
     const handleClickActivity = (param)=>{
@@ -25,32 +39,35 @@ const Home = () => {
         setHandleClickActivityGoal(param);
     }
 
-    const handleSubmit = () => {
-        
-    }
+    const onSubmit = data => console.log(data);
+
+
     return (
         <div className="home-container">
             <h1 className="calculator-text">CALCULADORA DIETA FLEXÍVEL</h1>
             <p className="description">Calcule os macronutrientes para sua dieta.</p>
-            <form className="calculator">
+            <form className="calculator" onSubmit={handleSubmit(onSubmit)}>
                 <h3 className="params" >Parâmetros corporais</h3>
                 <div className="buttons-sex">
-                    <Button buttonStyle={clicked ? "btn--sex-pressed" : "btn--sex"} buttonSize="btn--sex-size" type="button"  onClick={() => handleClick(false)}>MASCULINO</Button>
-                    <Button buttonStyle={!clicked ? "btn--sex-pressed" : "btn--sex"} buttonSize="btn--sex-size" type="button"  onClick={() => handleClick(true)}>FEMININO</Button>
+                    <Button buttonStyle={!clicked ? "btn--sex-pressed" : "btn--sex"} buttonSize="btn--sex-size" type="button"  onClick={() => handleClick()}>MASCULINO</Button>
+                    <Button buttonStyle={clicked ? "btn--sex-pressed" : "btn--sex"} buttonSize="btn--sex-size" type="button"  onClick={() => handleClick()}>FEMININO</Button>
                 </div>
                 <div className="age-weight-height">
                     <label className="custom-field">
-                        <input className="input-age-weight-height" type="text" placeholder="Idade" name="age"/>
+                        <input className={errors.age?.message ? "input-age-weight-height errorInput" : "input-age-weight-height alright"} type="number" placeholder="Idade" name="age" {...register("age")}/>
                         <span className="placeholder">Idade</span>
+                        <p className="errorMessage">{errors.age?.message}</p>
                         
                     </label>
                     <label className="custom-field">
-                        <input className="input-age-weight-height" type="text" placeholder="Peso (kg)" name="weight" />
-                        <span className="placeholder">Peso (kg)</span>
+                        <input className={errors.weight?.message ? "input-age-weight-height errorInput" : "input-age-weight-height alright"} type="number" placeholder="Peso(kg)" name="weight" {...register("weight")}/>
+                        <span className="placeholder">Peso(kg)</span>
+                        <p className="errorMessage">{errors.weight?.message}</p>
                     </label>
                     <label className="custom-field">
-                        <input className="input-age-weight-height" type="text" placeholder="Altura (cm)" name="height" />
-                        <span className="placeholder">Altura (cm)</span>
+                    <input className={errors.height?.message ? "input-age-weight-height errorInput" : "input-age-weight-height alright"} type="number" placeholder="Altura(cm)" name="height" {...register("height")}/>
+                        <span className="placeholder">Altura(cm)</span>
+                        <p className="errorMessage">{errors.height?.message}</p>
                     </label>
                 </div>
                 <h3 className="activity" >Nível de atividade</h3>
@@ -117,14 +134,14 @@ const Home = () => {
                 <h3 className="percentage">Percentual de gordura (opcional)</h3>
                 <div className="percentage-section">
                     <label className="custom-field">
-                        <input className="input-percentage" type="text" placeholder="BF(%)" name="bf" />
+                        <input className="input-percentage" type="number" placeholder="BF(%)" name="bf" {...register("bf")}/>
                         <span className="placeholder">BF(%)</span>
                     </label>
                 </div>
 
                 {/*<Link to="/result" className="btn-submit">*/}
                     <div className="submit">
-                        <Button buttonStyle="btn--sex-pressed" buttonSize="btn--calculate-size" type="button" onClick={() => handleSubmit()}>Calcular</Button>
+                        <Button buttonStyle="btn--sex-pressed" buttonSize="btn--calculate-size" type="submit">Calcular</Button>
                     </div>
                 {/*</Link>*/}
             </form>
