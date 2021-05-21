@@ -60,6 +60,10 @@ td{
     color: #000;
     font-weight: bold;
     font-size: 14px;
+    border: 2px solid #000;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    width: 200px;
 }
 
 .input-percentage{
@@ -81,6 +85,7 @@ td{
     font-size: 14px;
     padding-top: 20px;
     margin-bottom: 5px;
+    width: 100%;
 }
 
 .custom-field .placeholder{
@@ -210,8 +215,7 @@ strong{
 
 .select{
     border: 2px solid #000;
-    margin: 10px;
-    width: 225px;
+    width: 200px;
     background: transparent;
     padding: 12px;
     border-radius: 20px;
