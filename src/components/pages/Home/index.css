@@ -126,6 +126,12 @@ input:focus::placeholder{
     color: #000;
 }
 
+
+.physique{
+    margin-bottom: 10px;
+    color: #000;
+}
+
 .percentage{
     margin-top: 20px;
     margin-bottom: 10px;
@@ -293,7 +299,9 @@ h6{
 .errorMessage{
     margin-top: 5px;
     margin-left: 5px;
+    margin-bottom: 5px;
     color: red;
+    font-size: 14px;
 }
 
 .span-physique{

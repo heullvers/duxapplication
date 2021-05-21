@@ -2,25 +2,21 @@ import React, { Component, useState } from 'react';
 import { Button } from '../../Button';
 import './index.css';
 import {Link} from 'react-router-dom';
-import {Formik} from 'formik';
+import {Formik, Field, Form} from 'formik';
+import * as Yup from 'yup';
 
 const Home = () => {
 
     const [values, setValues] = useState({
         clicked: 0,
-        clickedActivity: 0,
-        clickedPhysique : undefined,
-        clickedActivityGoal: undefined
+        clickedActivity: 2,
+        clickedActivityGoal: 1
     });
 
     const handleClick = () => {
         setValues({...values, clicked: !values.clicked});
     }
 
-    const handleClickPhysique = (param)=>{
-        setValues({...values,clickedPhysique: param});
-    }
-    
     const handleClickActivity = (param)=>{
         setValues({...values,clickedActivity: param});
     }
@@ -62,14 +58,35 @@ const Home = () => {
         return get;
     }
 
+    const onSubmit = (values, actions) => {
+        console.log('chamei');
+        console.log(values);
+    }
+    
+
+    const schema = Yup.object().shape({
+        age: Yup.number().positive("O número deve ser positivo").integer("Digite somente números (sem pontos ou vírgulas)").required("É preciso digitar a idade"),
+        weight: Yup.number().positive("O número deve ser positivo").integer("Digite somente números (sem pontos ou vírgulas)").required("É preciso digitar o peso"),
+        height: Yup.number().positive("O número deve ser positivo").integer("Digite somente números (sem pontos ou vírgulas)").required("É preciso digitar a altura"),
+        selectPhysique: Yup.number().required("É preciso selecionar o seu físico atual")
+    });
+
 
     return (
         <div className="home-container">
             <h1 className="calculator-text">CALCULADORA DIETA FLEXÍVEL</h1>
             <p className="description">Calcule os macronutrientes para sua dieta.</p>
             <Formik 
-            render={() => (
-                <form className="calculator">
+            validationSchema={schema}
+            onSubmit={onSubmit}
+            initialValues={{
+                age: '',
+                weight: '',
+                height: '',
+                selectPhysique: ''
+            }}
+            render={({valuesFormik, errors}) => (
+                <Form className="calculator">
                     <h3 className="params" >Parâmetros corporais</h3>
                     <div className="buttons-sex">
                         <Button buttonStyle={!values.clicked ? "btn--sex-pressed" : "btn--sex"} buttonSize="btn--sex-size" type="button"  onClick={() => handleClick()}>MASCULINO</Button>
@@ -78,32 +95,44 @@ const Home = () => {
 
                     <div className="age-weight-height">
                         <label className="custom-field">
-                            <input className="input-age-weight-height" type="number" placeholder="Idade" name="age"/>
+                            <Field className={errors.age ? "input-age-weight-height errorInput" : "input-age-weight-height alright"} type="number" placeholder="Idade" name="age"/>
                             <span className="placeholder">Idade</span>
-                            
+                            {errors.age && (
+                                <p className="errorMessage">{errors.age}</p>
+                            )}                            
                         </label>
                         <label className="custom-field">
-                            <input className="input-age-weight-height" type="number" placeholder="Peso(kg)" name="weight"/>
+                            <Field className={errors.weight ? "input-age-weight-height errorInput" : "input-age-weight-height alright"} type="number" placeholder="Peso(kg)" name="weight"/>
                             <span className="placeholder">Peso(kg)</span>
+                            {errors.weight && (
+                                <p className="errorMessage">{errors.weight}</p>
+                            )}  
                         </label>
                         <label className="custom-field">
-                        <input className="input-age-weight-height" type="number" placeholder="Altura(cm)" name="height"/>
+                            <Field className={errors.height ? "input-age-weight-height errorInput" : "input-age-weight-height alright"}  type="number" placeholder="Altura(cm)" name="height"/>
                             <span className="placeholder">Altura(cm)</span>
+                            {errors.height && (
+                                <p className="errorMessage">{errors.height}</p>
+                            )}  
                         </label>
                     </div>
 
-                    <h3 className="activity" id="physiqueId" tabIndex="0" >Qual seu físico atual?</h3>
+                    <h3 className="physique">Qual seu físico atual?</h3>
+                    {errors.selectPhysique && (
+                                <p className="errorMessage">{errors.selectPhysique}</p>
+                            )} 
                     <div className="divSelectPhysique">
-                        <select className="select">
-                            <option onClick={() => handleClickPhysique(0)}>Magro</option>
-                            <option onClick={() => handleClickPhysique(1)}>Peso normal</option>
-                            <option onClick={() => handleClickPhysique(2)}>Sobrepeso</option>
-                            <option onClick={() => handleClickPhysique(3)}>Obeso</option>
-                            <option onClick={() => handleClickPhysique(4)}>Atleta</option>
-                        </select>
+                        <Field as="select" name="selectPhysique" className={errors.selectPhysique ? "select errorInput": "select alright"}>
+                            <option hidden> Selecione </option>
+                            <option value="1">Magro</option>
+                            <option value="2">Peso normal</option>
+                            <option value="3">Sobrepeso</option>
+                            <option value="4">Obeso</option>
+                            <option value="5">Atleta</option>
+                        </Field>
                     </div>
 
-                    <h3 className="activity" id="activityId" tabIndex="0" >Nível de atividade</h3>
+                    <h3 className="activity">Nível de atividade</h3>
                     
                     <div className={values.clickedActivity === 0 ? "description-activity" : "description-hidden"} >
                             <p className="description-activity-p"><strong>Sedentário: </strong> Pouco ou nenhum exercício.</p>
@@ -145,7 +174,7 @@ const Home = () => {
                         </select>
                     </div>
                     
-                    <h3 className="activity" id="activityGoalId" tabIndex="0">Objetivo</h3>
+                    <h3 className="activity">Objetivo</h3>
                     <div className="goals">
                         <Button buttonStyle={values.clickedActivityGoal === 0 ? "btn--sex-pressed" : "btn--sex"} buttonSize="btn--sex-size" type="button" onClick={() => handleClickGoal(0)}>EMAGRECER</Button>
                         <Button buttonStyle={values.clickedActivityGoal === 1 ? "btn--sex-pressed" : "btn--sex"} buttonSize="btn--sex-size" type="button" onClick={() => handleClickGoal(1)}>MANTER</Button>
@@ -172,10 +201,10 @@ const Home = () => {
 
                     {/*<Link to="/result" className="btn-submit">*/}
                         <div className="submit">
-                            <Button buttonStyle="btn--sex-pressed" buttonSize="btn--calculate-size" type="button">Calcular</Button>
+                            <Button buttonStyle="btn--sex-pressed" buttonSize="btn--calculate-size" type="submit">Calcular</Button>
                         </div>
                     {/*</Link>*/}
-                </form>
+                </Form>
             )}
             />
             
