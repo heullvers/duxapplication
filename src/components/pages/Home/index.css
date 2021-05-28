@@ -1,69 +1,9 @@
-.home-container{
-    display: flex;
-    flex-direction: column;
-    /*background-color: cornflowerblue;*/
-    margin: auto;
-    
-}
 
-.description{
-    color: #000;
-    margin: 20px 5px;
-}
-
-h3{
-    margin-left: 5px;
-    font-weight: 100;
-}
-
-
-td{
-    text-align: center;
-}
-
-.buttons-sex{
-    display: flex;
-    justify-content: center;
-}
-
-.params{
-    text-align: start;
-    color: #000;
-}
-
-.calculator-text{
-    font-family: 'Fugaz One', cursive;
-    color: #000;
-    font-size: 40px;
-    text-align: center;
-    margin-top: 20px;
-}
-
-.age-weight-height{
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-}
-
+/*
 .percentage-section{
     display: flex;
     justify-content: flex-start;
     margin-bottom: 20px;
-}
-
-.input-age-weight-height{
-    appearance: none;
-    background: transparent;
-    padding: 12px;
-    border-radius: 20px;
-    outline: none;
-    color: #000;
-    font-weight: bold;
-    font-size: 14px;
-    border: 2px solid #000;
-    -webkit-appearance: none;
-    -moz-appearance: textfield;
-    width: 200px;
 }
 
 .input-percentage{
@@ -79,13 +19,75 @@ td{
     font-size: 14px;
 }
 
+.percentage{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #000;
+}
+*/
+
+strong{
+    color: #000;
+}
+
+h3{
+    margin-left: 5px;
+    font-weight: 100;
+}
+
+h6{
+    font-size: 20px;
+    font-family: 'Fugaz One', cursive;
+    font-weight: bold;
+}
+
+
+td{
+    text-align: center;
+}
+
+
+.home-container{
+    display: flex;
+    flex-direction: column;
+    /*background-color: cornflowerblue;*/
+    margin: auto;   
+}
+
+.calculator-text{
+    font-family: 'Fugaz One', cursive;
+    color: #000;
+    font-size: 40px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.description{
+    color: #000;
+    margin: 20px 5px;
+}
+
+.params{
+    text-align: start;
+    color: #000;
+}
+
+.buttons-sex{
+    display: flex;
+    justify-content: center; 
+}
+
+.age-weight-height{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
 
 .custom-field{
     position: relative;
     font-size: 14px;
     padding-top: 20px;
     margin-bottom: 5px;
-    width: 100%;
 }
 
 .custom-field .placeholder{
@@ -121,9 +123,36 @@ input:focus::placeholder{
     color: transparent;
 }
 
-.activity{
-    margin-bottom: 10px;
+.input-age-weight-height{
+    margin: 10px;
+    appearance: none;
+    background: transparent;
+    padding: 12px;
+    border-radius: 20px;
+    outline: none;
     color: #000;
+    font-weight: bold;
+    font-size: 14px;
+    border: 2px solid #000;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    width: 200px;
+}
+
+.errorInput{
+    border: 2px solid red;
+}
+
+.alright{
+    border: 2px solid #000;
+}
+
+.errorMessage{
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    color: red;
+    font-size: 14px;
 }
 
 
@@ -132,13 +161,13 @@ input:focus::placeholder{
     color: #000;
 }
 
-.percentage{
-    margin-top: 20px;
-    margin-bottom: 10px;
-    color: #000;
+.divSelectPhysique{
+    margin-bottom: 20px;
 }
 
-strong{
+
+.activity{
+    margin-bottom: 10px;
     color: #000;
 }
 
@@ -147,11 +176,20 @@ strong{
     margin-bottom: 10px;
 }
 
+.description-hidden{
+    display: none;
+}
+
 .description-activity-p{
     color: #000;
     margin-left: 5px;
     text-align: justify;
     margin-right: 5px;
+}
+
+.activity-section{
+    height: 98px;
+    margin-bottom: 20px;
 }
 
 .progress-bar{
@@ -206,21 +244,13 @@ strong{
     border-color: #fff;
 }
 
-.description-hidden{
-    display: none;
-}
-
-.activity-section{
-    height: 98px;
-    margin-bottom: 20px;
-}
-
 .activity-mobile{
     margin-bottom: 20px;
 }
 
 .select{
     border: 2px solid #000;
+    margin: 10px;
     width: 200px;
     background: transparent;
     padding: 12px;
@@ -230,49 +260,15 @@ strong{
     font-size: 14px;
 }
 
-.submit{
+.goals{
+    margin-bottom: 20px;
     display: flex;
     justify-content: center;
 }
 
-.goals{
-    margin-bottom: 20px;
-}
-
-.your-result{
-    margin-left: 5px;
-    font-weight: 100;
-}
-
-.card-header{
-    text-align: center;
-    padding: 20px 10px;
-    color: #fff;
-}
-
-.card1{
-    background: linear-gradient(to right, #48F08E, #3BC474);
-}
-
-.card:hover{
-    transform: scale(1.05);
-    box-shadow: 0 0 40px -10px rgba(0,0,0,0.25);
-}
-
-.macro-values{
-    border-bottom: solid 1px #000;
-    margin-bottom: 5px;
-}
-
-h6{
-    font-size: 20px;
-    font-family: 'Fugaz One', cursive;
-    font-weight: bold;
-}
-
-.swiper-container {
-    width: 600px;
-    height: 300px;
+.submit{
+    display: flex;
+    justify-content: center;
 }
 
 .btn-submit{
@@ -280,42 +276,41 @@ h6{
     color: #fff;
 }
 
-.logo-submit{
-    text-decoration: none;
-}
-
-.th{
-    margin-right: 5px;
-}
-
-.errorInput{
-    border: 2px solid red;
-}
-
-.alright{
-    border: 2px solid #000;
-}
-
-.errorMessage{
-    margin-top: 5px;
-    margin-left: 5px;
-    margin-bottom: 5px;
-    color: red;
-    font-size: 14px;
-}
-
 .span-physique{
     margin-left: 5px;
 }
 
-.divSelectPhysique{
-    margin-bottom: 20px;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media screen and (min-width: 960px) {
     .home-container{
-        width: 40%;
+        max-width: 800px;
     }
+    
 
     .activity-mobile{
         display: none;

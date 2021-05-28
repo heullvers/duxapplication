@@ -31,13 +31,15 @@ class NavBar extends Component{
                 </div>
 
                 <ul className={this.state.clicked? 'nav-menu active' : 'nav-menu'} >
+                    {/*
                     <li className="nav-top">
                         <a href='#t' className="nav-links" onClick={() => this.handleClickDropdown()}>CALCULADORAS <i className="fas fa-chevron-down"></i></a>
                         <ul className={this.state.clickeddropdown? 'dropdown-active dropdown-content dropdown' : 'dropdown-desactive dropdown'}>
                             <li className="first"><Link className="dropdown-text" to="/" onClick={this.handleClick}>Dieta flexível</Link></li>
-                            <li><Link to="/bf" className="dropdown-text" onClick={this.handleClick}>Percentual de gordura</Link></li>
+                            {<li><Link to="/bf" className="dropdown-text" onClick={this.handleClick}>Percentual de gordura</Link></li>}
                         </ul>
                     </li>                
+                    */}
 
                     <li>
                         <Link className="nav-links" to="/foods" onClick={this.handleClick}>ALIMENTOS</Link>

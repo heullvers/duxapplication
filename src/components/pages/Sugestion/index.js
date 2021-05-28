@@ -19,7 +19,7 @@ class Sugestion extends Component{
                 <div className="recommendation-products">
                     <Carousel breakPoints={this.breakPoints}>
                         <ItemCarousel><div className="product-img-text">
-                            <img src="https://www.gsuplementos.com.br/upload/growth-layout-personalizado/produto/185/produto.png" alt="whey" className="product-size-w"/>
+                            <img src="https://www.gsuplementos.com.br/upload/growth-layout-personalizado/produto/185/produto-selo-topo-new.png" alt="whey" className="product-size-w"/>
                             <div className="product">
                                 <h6>WHEY PROTEIN</h6>
                             </div>

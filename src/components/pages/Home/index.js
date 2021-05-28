@@ -86,7 +86,7 @@ const Home = () => {
                 selectPhysique: ''
             }}
             render={({valuesFormik, errors}) => (
-                <Form className="calculator">
+                <Form>
                     <h3 className="params" >Parâmetros corporais</h3>
                     <div className="buttons-sex">
                         <Button buttonStyle={!values.clicked ? "btn--sex-pressed" : "btn--sex"} buttonSize="btn--sex-size" type="button"  onClick={() => handleClick()}>MASCULINO</Button>
@@ -207,7 +207,6 @@ const Home = () => {
                 </Form>
             )}
             />
-            
         </div>
     
         );

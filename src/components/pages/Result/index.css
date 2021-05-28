@@ -71,6 +71,31 @@
     margin: 20px;
 }
 
+.your-result{
+    margin-left: 5px;
+    font-weight: 100;
+}
+
+.card-header{
+    text-align: center;
+    padding: 20px 10px;
+    color: #fff;
+}
+
+.card1{
+    background: linear-gradient(to right, #48F08E, #3BC474);
+}
+
+.card:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 40px -10px rgba(0,0,0,0.25);
+}
+
+.macro-values{
+    border-bottom: solid 1px #000;
+    margin-bottom: 5px;
+}
+
 table{
     border-collapse:separate; 
     border-spacing: 0 1em;

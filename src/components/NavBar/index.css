@@ -74,6 +74,10 @@
     margin-bottom: 15px;
 }
 
+.logo-submit{
+    text-decoration: none;
+}
+
 @media screen and (min-width: 960px) {
 
     .dropdown-desactive{
