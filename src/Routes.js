@@ -4,6 +4,7 @@ import Home from './components/pages/Home';
 import Result from './components/pages/Result';
 import About from './components/pages/About';
 import Foods from './components/pages/Foods';
+import NotFound from './components/pages/NotFound';
 
 class Routes extends Component {
     render(){
@@ -24,6 +25,8 @@ class Routes extends Component {
 
                 <Route path="/about" component={About} exact>
                 </Route>
+
+                <Route path='*' exact={true} component={NotFound} />
                 
             </Switch>
         );

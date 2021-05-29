@@ -1,0 +1,26 @@
+.image-not-found{
+    width: 300px;
+}
+
+.not-found{
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.error{
+    font-size: 60px;
+    text-align: center;
+}
+
+.page-not-found{
+    font-size: 40px;
+    text-align: center;
+}
+
+@media screen and (max-width: 960px) {
+    .not-found{
+        flex-direction: column;
+    }
+}

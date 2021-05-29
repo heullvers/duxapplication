@@ -84,7 +84,7 @@ const Home = () => {
             caloriesGoal = get + 500;
         }
 
-        return caloriesGoal.toFixed(0);
+        return parseFloat(caloriesGoal.toFixed(0));
     }
 
     const onSubmit = (valuesForm, actions) => {
@@ -110,9 +110,42 @@ const Home = () => {
 
         let calories = calcularObjetivo(get, goal);
 
-        let authorized = true;
+        //cálculo dos macronutrientes
+        var proteina = 0;
+        var gordura = 0;
+        var carboidrato = 0;
 
-        history.push({pathname:"/result", state: {calories, basal, get, authorized}});
+        if(activity === 0){
+            proteina = 0.8 * weight;
+        }
+        else{
+            if(bodyShape === "4"){
+                proteina = 1.8 * weight;
+            }
+            else{
+                proteina = 2 * weight;
+            }
+        }
+
+        proteina = parseFloat(proteina.toFixed(0));
+        gordura = parseFloat((0.8 * weight).toFixed(0));
+
+        let caloriasAteEntao = (proteina * 4) + (gordura * 9);
+        carboidrato = parseFloat(((calories - caloriasAteEntao) / 4).toFixed(0));
+    
+
+        var totalGramas = proteina + gordura + carboidrato; 
+
+        /*
+        let porcentagemProteina = parseFloat(((proteina / totalGramas) * 100).toFixed(0));
+        let porcentagemGordura = parseFloat(((gordura / totalGramas) * 100).toFixed(0));
+        let porcentagemCarboidrato = parseFloat(((carboidrato / totalGramas) * 100).toFixed(0));
+        */
+
+
+
+        history.push({pathname:"/result", state: {calories, basal, get, proteina, carboidrato, gordura}});
+        //calcular qnt. de água
 
     }
     
@@ -217,10 +250,10 @@ const Home = () => {
                     </div>
 
                     <div className="activity-mobile">
-                        <select className="select">
+                        <select className="select alright">
                             <option onClick={() => handleClickActivity(0)}>Sedentário</option>
                             <option onClick={() => handleClickActivity(1)}>Levemente ativo</option>
-                            <option onClick={() => handleClickActivity(2)}>Moderamente ativo</option>
+                            <option selected onClick={() => handleClickActivity(2)}>Moderamente ativo</option>
                             <option onClick={() => handleClickActivity(3)}>Muito ativo</option>
                             <option onClick={() => handleClickActivity(4)}>Extremamente ativo</option>
                         </select>
@@ -234,9 +267,9 @@ const Home = () => {
                     </div>
 
                     <div className="goals-mobile">
-                        <select className="select">
+                        <select className="select alright">
                             <option onClick={() => handleClickGoal(0)}>Emagrecer</option>
-                            <option onClick={() => handleClickGoal(1)}>Manter</option>
+                            <option selected onClick={() => handleClickGoal(1)}>Manter</option>
                             <option onClick={() => handleClickGoal(2)}>Ganhar</option>
                         </select>
                     </div>
