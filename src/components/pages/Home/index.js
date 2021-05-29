@@ -1,11 +1,13 @@
 import React, { Component, useState } from 'react';
 import { Button } from '../../Button';
 import './index.css';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import {Formik, Field, Form} from 'formik';
 import * as Yup from 'yup';
 
 const Home = () => {
+
+    let history = useHistory();
 
     const [values, setValues] = useState({
         clicked: 0,
@@ -25,30 +27,42 @@ const Home = () => {
         setValues({...values, clickedActivityGoal: param});
     }
 
-    const calcularMetabolismoBasal = (data) => {
+    const calcularMetabolismoBasalHarris = (age, weight, height, gender) => {
         let metabolismoBasal = 0;
-        if(values.clicked){ //homem
-            metabolismoBasal += 66.5 + (13.75 * data.weight) + (5.003 * data.height) - (6.755 * data.age);
+        if(!gender){ //homem
+            metabolismoBasal += 66.5 + (13.75 * weight) + (5.003 * height) - (6.755 * age);
         }
         else{ //mulher
-            metabolismoBasal += 655.1 + (9.563 * data.weight) + (1.850 * data.height) - (4.676 * data.age);
+            metabolismoBasal += 655.1 + (9.563 * weight) + (1.850 * height) - (4.676 * age);
         }
 
         return metabolismoBasal;
     }
 
-    const calcularGet = (basal) => {
+    const calcularMetabolismoBasalMifflin = (age, weight, height, gender) => {
+        let metabolismoBasal = 0;
+        if(!gender){ //homem
+            metabolismoBasal += (10 * weight) + (6.25 * height) - (5 * age) + 5;
+        }
+        else{ //mulher
+            metabolismoBasal += (10 * weight) + (6.25 * height) - (5 * age) - 161;
+        }
+
+        return metabolismoBasal;
+    }
+
+    const calcularGet = (basal, activity) => {
         let get = 0;
-        if(values.clickedActivity === 0){
+        if(activity === 0){
             get = basal * 1.2;
         }
-        else if(values.clickedActivity === 1){
+        else if(activity === 1){
             get = basal * 1.375;
         }
-        else if(values.clickedActivity === 2){
+        else if(activity === 2){
             get = basal * 1.55;
         }
-        else if(values.clickedActivity === 3){
+        else if(activity === 3){
             get = basal * 1.725;
         }
         else{
@@ -58,16 +72,55 @@ const Home = () => {
         return get;
     }
 
-    const onSubmit = (values, actions) => {
-        console.log('chamei');
-        console.log(values);
+    const calcularObjetivo = (get,goal) => {
+        let caloriesGoal = 0;
+        if(goal === 0){
+            caloriesGoal = get * 0.8;
+        }
+        else if(goal === 1){
+            caloriesGoal = get * 1;
+        }
+        else{
+            caloriesGoal = get + 500;
+        }
+
+        return caloriesGoal.toFixed(0);
+    }
+
+    const onSubmit = (valuesForm, actions) => {
+
+        let age = valuesForm.age;
+        let weight = valuesForm.weight;
+        let height = valuesForm.height;
+        let bodyShape = valuesForm.selectPhysique; //1 Magro //2 Peso normal //3 Sobrepeso //4 Obeso
+
+        let gender = values.clicked; //0 masculino //1 feminino
+        let activity = values.clickedActivity; //0 sedentario //1 levemente ativo //2 moderadamente ativo //3 muito ativo //4 extremamente ativo
+        let goal = values.clickedActivityGoal; //0 emagrecer //1 manter //2 ganhar
+
+        let basal = 0;
+        if(bodyShape === "1" || bodyShape === "2" ){
+            basal = calcularMetabolismoBasalHarris(age, weight, height, gender);
+        }
+        else{
+            basal = calcularMetabolismoBasalMifflin(age, weight, height, gender);
+        }
+
+        let get = calcularGet(basal, activity);
+
+        let calories = calcularObjetivo(get, goal);
+
+        let authorized = true;
+
+        history.push({pathname:"/result", state: {calories, basal, get, authorized}});
+
     }
     
 
     const schema = Yup.object().shape({
         age: Yup.number().positive("O número deve ser positivo").integer("Digite somente números (sem pontos ou vírgulas)").required("É preciso digitar a idade"),
         weight: Yup.number().positive("O número deve ser positivo").integer("Digite somente números (sem pontos ou vírgulas)").required("É preciso digitar o peso"),
-        height: Yup.number().positive("O número deve ser positivo").integer("Digite somente números (sem pontos ou vírgulas)").required("É preciso digitar a altura"),
+        height: Yup.number().positive("O número deve ser positivo").integer("Digite somente números").required("É preciso digitar a altura"),
         selectPhysique: Yup.number().required("É preciso selecionar o seu físico atual")
     });
 
@@ -128,7 +181,6 @@ const Home = () => {
                             <option value="2">Peso normal</option>
                             <option value="3">Sobrepeso</option>
                             <option value="4">Obeso</option>
-                            <option value="5">Atleta</option>
                         </Field>
                     </div>
 

@@ -249,7 +249,6 @@ input:focus::placeholder{
 }
 
 .select{
-    border: 2px solid #000;
     margin: 10px;
     width: 200px;
     background: transparent;
@@ -279,32 +278,6 @@ input:focus::placeholder{
 .span-physique{
     margin-left: 5px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @media screen and (min-width: 960px) {
     .home-container{

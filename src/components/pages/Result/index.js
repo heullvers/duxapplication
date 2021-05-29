@@ -1,67 +1,83 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Sugestion from '../Sugestion';
 import './index.css';
+import {Redirect} from 'react-router-dom';
 
-class Result extends Component {
-    render(){
-        return (
-            <>
-                <div className="home-container result-component">
-                    <div className="result">
-                        <h2 className="result-text">Seu resultado</h2>
-                        <div className="spent">
-                            <span className="calories-spend">{2499}</span> <span className="kcal">kcal</span>
-                            <p className="description-calories">Número de calorias que você deve ingerir para atingir <strong>seu objetivo.</strong></p>
-                        </div>
-                        <div className="basal">
-                            <p>
-                                <strong>Taxa metabólical basal</strong> - {1900} kcal.
-                            </p>
+const Result = (props) => {
+    
 
-                        </div>
-                        <h2 className="title-macronutrients">MACRONUTRIENTES</h2>
-                        <div className="divider">
-                        </div>
+    let params = props.history.location.state;
 
-                        <div className="row-cards">
-                            <div className="card">
-                                <div className="card-header card1">
-                                    <h3>Recomendado</h3>
-                                </div>
-                                <div className="card-body">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <th>Macronutriente</th>
-                                                <th>Quantidade</th>
-                                            </tr>
+    window.scrollTo(0,0);
 
-                                            <tr>
-                                                <td>Carboidrato</td>
-                                                <td>{150}<strong>g</strong>/ ({40} <strong>%</strong>)</td>
-                                            </tr>
+    let calories = params.calories;
+    let basal = params.basal;
+    let get = params.get;
 
-                                            <tr>
-                                                <td>Proteína</td>
-                                                <td>{160}<strong>g</strong>/ ({40} <strong>%</strong>)</td>
-                                            </tr>
+    return (
+        <>
+            <div className="home-container result-component">
+                <div className="result">
+                    <h2 className="result-text">Seu resultado</h2>
+                    <div className="spent">
+                        <span className="calories-spend">{calories}</span> <span className="kcal">kcal</span>
+                        <p className="description-calories">Número de calorias que você deve ingerir para atingir <strong>seu objetivo.</strong></p>
+                    </div>
+                    <div className="basal">
+                        <p>
+                            <strong>Taxa metabólical basal (TMB)</strong> - {basal.toFixed(0)} kcal.
+                        </p>
 
-                                            <tr>
-                                                <td>Gordura</td>
-                                                <td>{80}<strong>g</strong>/ ({120} <strong>%</strong>)</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                    </div>
+                    <div className="basal">
+                        <p>
+                            <strong>Gasto energético total (GET)</strong> - {get.toFixed(0)} kcal.
+                        </p>
+
+                    </div>
+                    <h2 className="title-macronutrients">MACRONUTRIENTES</h2>
+                    <div className="divider">
+                    </div>
+
+                    <div className="row-cards">
+                        <div className="card">
+                            <div className="card-header card1">
+                                <h3>Recomendado</h3>
+                            </div>
+                            <div className="card-body">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th>Macronutriente</th>
+                                            <th>Quantidade</th>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Carboidrato</td>
+                                            <td>{150}<strong>g</strong>/ ({40} <strong>%</strong>)</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Proteína</td>
+                                            <td>{160}<strong>g</strong>/ ({40} <strong>%</strong>)</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Gordura</td>
+                                            <td>{80}<strong>g</strong>/ ({120} <strong>%</strong>)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
-                    <Sugestion></Sugestion>
                 </div>
-    
-            </>
-        );
-    }
+                <Sugestion></Sugestion>
+            </div>
+
+        </>
+    );
+
 };
 
 export default Result;
