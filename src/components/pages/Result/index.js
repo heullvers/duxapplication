@@ -55,13 +55,16 @@ const Result = (props) => {
                                     <h3>Recomendado</h3>
                                 </div>
                                 <div className="card-body">
-                                    <table>
-                                        <tbody>
+                                    <table className="tabela-result">
+                                        <thead>
                                             <tr>
-                                                <th>Macronutriente</th>
-                                                <th>Quantidade</th>
+                                                <th  className="th-result">Macronutriente</th>
+                                                <th  className="th-result">Quantidade</th>
                                             </tr>
-
+                                            
+                                        </thead>
+                                                
+                                        <tbody>
                                             <tr>
                                                 <td>Carboidrato</td>
                                                 <td>{carboidrato}<strong>g</strong> {/*/ ({40} <strong>%</strong>)*/}</td>

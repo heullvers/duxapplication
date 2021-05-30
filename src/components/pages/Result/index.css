@@ -101,13 +101,15 @@
     margin-bottom: 5px;
 }
 
-table{
-    border-collapse:separate; 
-    border-spacing: 0 1em;
+/*
+.tabela-result{
+    
 }
+*/
 
-th{
+.th-result{
     padding-right: 10px;
+    background: #48F08E;
 }
 
 .result-component{

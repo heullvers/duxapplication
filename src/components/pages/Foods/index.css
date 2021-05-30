@@ -2,3 +2,71 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.th{
+    background: #48F08E;
+}
+/*
+.table{
+    border-radius: 20px;
+    margin: 10px;
+}
+*/
+
+tr:nth-child(odd){
+    background-color: #eeeeee;
+}
+
+.title-macro{
+    text-align: center;
+    font-family: 'Fugaz One', cursive;
+    font-weight: bold;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(2,0,36,1) 0%, rgba(97,96,101,1) 100%); 
+    color: #fff;
+    padding: 10px;
+    margin: 10px;
+}
+
+.alimentos{
+    font-family: 'Fugaz One', cursive;
+    text-align: center;
+    font-weight: 100;
+}
+
+.descricao{
+    text-align: justify;
+    margin: 10px;
+}
+
+@media screen and (max-width: 960px) {
+
+    .table thead{
+        display: none;
+    }
+
+    .table, .table tbody, .table tr, .table td{
+        display: block;
+        width: 100%;
+    }
+
+    .table tr{
+        margin-bottom: 15px;
+    }
+
+    .table td{
+        text-align: right;
+        position: relative;
+        padding-right: 10px;
+    }
+
+    .table td::before{
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 10px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
