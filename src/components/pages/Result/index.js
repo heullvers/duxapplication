@@ -21,6 +21,8 @@ const Result = (props) => {
         let proteina = params.proteina;
         let gordura = params.gordura;
         let carboidrato = params.carboidrato;
+        
+        let goal = params.goal;
 
         return (
             <>
@@ -31,13 +33,13 @@ const Result = (props) => {
                             <span className="calories-spend">{calories}</span> <span className="kcal">kcal</span>
                             <p className="description-calories">Número de calorias que você deve ingerir para atingir <strong>seu objetivo.</strong></p>
                         </div>
-                        <div className="basal">
+                        <div className="tmb">
                             <p>
                                 <strong>Taxa metabólical basal (TMB)</strong> - {basal.toFixed(0)} kcal.
                             </p>
 
                         </div>
-                        <div className="basal">
+                        <div className="get">
                             <p>
                                 <strong>Gasto energético total (GET)</strong> - {get.toFixed(0)} kcal.
                             </p>
@@ -80,7 +82,7 @@ const Result = (props) => {
                             </div>
                         </div>
                     </div>
-                    <Sugestion></Sugestion>
+                    <Sugestion objetivo={goal}></Sugestion>
                 </div>
 
             </>

@@ -67,8 +67,13 @@
     justify-content: space-around;
 }
 
-.basal{
+.tmb{
     margin-top: 20px;
+    margin-left: 10px;
+}
+
+.get{
+    margin: 10px;
 }
 
 .your-result{

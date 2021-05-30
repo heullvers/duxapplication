@@ -46,7 +46,6 @@ td{
     text-align: center;
 }
 
-
 .home-container{
     display: flex;
     flex-direction: column;
@@ -136,7 +135,7 @@ input:focus::placeholder{
     border: 2px solid #000;
     -webkit-appearance: none;
     -moz-appearance: textfield;
-    width: 200px;
+    width: 220px;
 }
 
 .errorInput{
@@ -250,7 +249,7 @@ input:focus::placeholder{
 
 .select{
     margin: 10px;
-    width: 200px;
+    width: 220px;
     background: transparent;
     padding: 12px;
     border-radius: 20px;
