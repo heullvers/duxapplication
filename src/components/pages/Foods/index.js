@@ -9,7 +9,7 @@ class Foods extends Component{
                 <p className="descricao">Essa lista de alimentos tem como objetivo informar a você
                 que realiza a dieta flexível, alimentos base para uma alimentação saudável. <strong> A quantidade de cada macronutriente 
                 para cada alimento está para uma porção de 100g. Apenas os alimentos clara de 
-                ovo e gema de ovo estão por unidade e azeite 100ml.</strong> Para contabilizar seus macros, é recomendado o aplicativo MyFitnessPal</p>
+                ovo e gema de ovo estão por unidade e azeite 100ml.</strong> Para contabilizar seus macros, é recomendado o aplicativo MyFitnessPal.</p>
                 <h2 className="title-macro">CARBOIDRATOS</h2>
                 <table className="table">
                     <thead>
@@ -70,7 +70,7 @@ class Foods extends Component{
                             <td data-label="Alimento">Feijão</td>
                             <td data-label="Carboidrato">13,6<strong>g</strong></td>
                             <td data-label="Proteína">4,8<strong>g</strong></td>
-                            <td data-label="Gordura">0,9g<strong>g</strong></td>
+                            <td data-label="Gordura">0,9<strong>g</strong></td>
                             <td data-label="Calorias">76</td>
                         </tr>
                     </tbody>
@@ -98,7 +98,7 @@ class Foods extends Component{
                             <td data-label="Alimento">Clara de ovo</td>
                             <td data-label="Carboidrato">0,2<strong>g</strong></td>
                             <td data-label="Proteína">3,6<strong>g</strong></td>
-                            <td data-label="Gordura">0,1g<strong>g</strong></td>
+                            <td data-label="Gordura">0,1<strong>g</strong></td>
                             <td data-label="Calorias">17</td>
                         </tr>
                         <tr>
@@ -225,7 +225,7 @@ class Foods extends Component{
                             <td data-label="Alimento">Kiwi</td>
                             <td data-label="Carboidrato">11,5<strong>g</strong></td>
                             <td data-label="Proteína">1,3<strong>g</strong></td>
-                            <td data-label="Gordura">0,6h<strong>g</strong></td>
+                            <td data-label="Gordura">0,6<strong>g</strong></td>
                             <td data-label="Calorias">51</td>
                         </tr>
                         <tr>

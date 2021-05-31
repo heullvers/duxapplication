@@ -37,6 +37,7 @@ tr:nth-child(odd){
 .descricao{
     text-align: justify;
     margin: 10px;
+    text-indent: 50px;
 }
 
 @media screen and (max-width: 960px) {

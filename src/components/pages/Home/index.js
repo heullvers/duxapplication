@@ -120,6 +120,9 @@ const Home = () => {
         }
         else{
             if(bodyShape === "4"){
+                proteina = 1.5 * weight;
+            }
+            else if(bodyShape === "1" || bodyShape === "3"){
                 proteina = 1.8 * weight;
             }
             else{
@@ -128,7 +131,7 @@ const Home = () => {
         }
 
         proteina = parseFloat(proteina.toFixed(0));
-        gordura = parseFloat((0.8 * weight).toFixed(0));
+        gordura = parseFloat((0.7 * weight).toFixed(0));
 
         let caloriasAteEntao = (proteina * 4) + (gordura * 9);
         carboidrato = parseFloat(((calories - caloriasAteEntao) / 4).toFixed(0));
