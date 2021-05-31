@@ -4,6 +4,7 @@ import Footer from "./components/pages/Footer";
 import {BrowserRouter} from "react-router-dom";
 import Routes from './Routes';
 
+
 function App() {
   return (
     <>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './index.css';
 import { Button } from '../../Button';
 import { BrowserRouter, Link } from 'react-router-dom';
@@ -9,8 +9,37 @@ import {
   FaTwitter
 } from 'react-icons/fa';
 import Duck from './../../../images/duck.png';
+import db from './../../../firebase';
+import firebase from 'firebase/app';
+import styled from 'styled-components';
 
 function Footer() {
+
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  }
+
+  const enviar = (e) =>{
+    e.preventDefault();
+    if(email){
+
+      db.collection("emails").add({
+        email: email,
+        time: firebase.firestore.FieldValue.serverTimestamp(),
+
+      });
+
+      setEmail("");
+      setMessage("Obrigado por se inscrever!");
+      setTimeout(() => {
+        setMessage("");
+      }, 3000)
+    }
+  }
+
   return (
     <div className='footer-container'>
       <section className='footer-subscription'>
@@ -21,15 +50,18 @@ function Footer() {
           Você pode se desinscrever a qualquer momento.
         </p>
         <div className='input-areas'>
-          <form>
+          <form onSubmit={enviar}>
             <input
               className='footer-input'
               name='email'
               type='email'
               placeholder='Seu email'
+              onChange={handleEmail}
+              value={email}
             />
-            <Button buttonStyle='btn--outline' type="button">Inscrever-se</Button>
+            <Button buttonStyle='btn--outline' type="submit">Inscrever-se</Button>
           </form>
+          {message && <Alert>{message}</Alert>}
         </div>
       </section>
       <section className='social-media'>
@@ -77,5 +109,20 @@ function Footer() {
     </div>
   );
 }
+
+const Alert = styled.p`
+  padding: 10px;
+  margin: 0.5 rem;
+  margin-top: 20px;
+  color: black;
+  text-align: center;
+  font-size: 1.2rem;
+  font-family: sans-serif;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 10px;
+  background: #fff;
+  backdrop-filter: blur(10px);
+
+`;
 
 export default Footer;
